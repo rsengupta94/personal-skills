@@ -36,7 +36,7 @@ Do not execute anything — no installs, no runs — unless the user explicitly 
 
 ## Phase 3 — Draft
 
-If a README exists, bring it fully up to this template and style contract — the same standard as a fresh write. Carry over user-added assets that still check out (images, badges, external links); drop anything stale or untraceable, and record each drop for the report.
+If a README exists, bring it fully up to this template and style contract — the same standard as a fresh write. Carry over user-added assets (images, badges, external links); record each drop for the report. An external URL cannot be traced statically: drop it only when it is visibly stale (points to a renamed file, old repo name, or removed feature); otherwise carry it over and list it as unconfirmed in the Phase 5 report.
 
 Template, in order — omit any section with nothing verified to say:
 
@@ -55,6 +55,7 @@ If the repo is not a runnable program (a skills collection, docs, config), Quick
 - **Fresh-clone test:** a reader with zero context reaches a working state using only this document.
 - **First-screen test:** what it is, the problem, and who it's for are clear before scrolling.
 - **Fluff scan:** delete every banned word — powerful, seamless, robust, leverage, cutting-edge, blazing(ly), effortless(ly), revolutionize, supercharge — and any adjective the repo can't prove. Delete any sentence that doesn't help the reader decide to read on, install, or leave.
+- **Plain-language scan:** short sentences, common words. Technical terms stay when they are the accurate name for the thing; drop jargon a plainer word can fully replace.
 - **Leak scan:** no secrets, no real key values, no private context.
 
 Fix every failure and re-run the failed check before presenting.
