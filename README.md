@@ -51,7 +51,3 @@ To install one skill only, copy its folder instead of linking everything:
 mkdir -p ~/.claude/skills
 cp -r ~/skills/no-ai-slop ~/.claude/skills/
 ```
-
-## Status and license
-
-These skills are in active use and change often. The repo has no license file yet.
