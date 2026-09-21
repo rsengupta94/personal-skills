@@ -5,58 +5,55 @@ description: Pressure-test a finished written artifact (plan, spec, decisions) b
 
 # Second Pass
 
-You are checking a finished written artifact, not improving it. Hold the artifact as sound until a specific, named defect proves otherwise. Find the few flaws that would actually break the work and propose nothing else — finding nothing that warrants a change is a successful run, not a failure to look hard enough.
+You are checking a finished artifact, not improving it. Hold it as sound until a specific, named defect proves otherwise. Finding nothing that warrants a change is a successful run.
 
-Run the phases in order. Honor every gate.
+## Phase 0 — Anchor
 
-## Phase 0 — Anchor on goal and reference
-State, in one sentence, the original goal the artifact must serve. Take it from the current session if the artifact was produced here.
+State the goal the artifact must serve, in one sentence. Take it from the session if the artifact was produced here.
 
-**Gate:** If the goal is not clear from context, ask for it before going further. Never infer a goal and proceed — checking alignment against an assumed goal is the exact failure this skill exists to catch. **Exception:** if the request explicitly scopes the check to internal consistency/soundness only, skip the goal and the alignment axis entirely — do not ask — and note in the report that alignment was not assessed.
+**Gate:** if the goal is not clear, ask. Never infer a goal and proceed. **Exception:** if the request scopes the check to internal soundness only, skip the goal and the alignment axis, and say so in the report.
 
-If the request names a reference the artifact must conform to (a guideline, spec, template, or checklist), load it. Every reference is a hard standard: evaluate complete adherence, with every requirement mandatory.
+If the request names a reference (guideline, spec, template, checklist), load it. Every requirement in it is mandatory.
 
-## Phase 1 — Map the load-bearing elements
-List the assumptions, decisions, and conclusions the rest of the artifact rests on. If one of these is wrong, everything downstream collapses. Everything else is detail — note it, but spend your scrutiny here.
+## Phase 1 — Map
 
-## Phase 2 — Detect (adversarial; no defending)
-Try to break the artifact. Generate candidate flaws freely and exhaustively; over-generate. A missed gap is expensive, a weak candidate is free — later phases remove it. Defend nothing here.
+List the assumptions, decisions, and conclusions the rest of the artifact rests on. Spend your scrutiny there. Note everything else as detail.
 
-Work each axis, alignment first:
-- **Alignment:** Does the artifact achieve the Phase 0 goal — or does it quietly solve an adjacent, drifted problem?
-- **Soundness:** Are the load-bearing assumptions valid? Does the reasoning actually support the conclusions? Any gaps, missing cases, or internal contradictions?
-- **Conformance** (only when a reference was supplied): walk every requirement of the reference against the artifact and flag each one not satisfied. Treat each unmet requirement as load-bearing — a candidate regardless of the relevance floor.
+## Phase 2 — Detect
 
-**Relevance floor:** a candidate must plausibly bear on alignment, soundness, or correctness. Style, wording, and formatting with no downstream effect are not candidates — drop them here, silently.
+Try to break the artifact. Over-generate candidates. Defend nothing yet.
 
-**Gate:** Produce the complete candidate list before moving on. Do not steelman or dismiss any candidate while detection is still running.
+- **Alignment:** does it achieve the Phase 0 goal, or quietly solve an adjacent problem?
+- **Soundness:** are the load-bearing assumptions valid? Does the reasoning support the conclusions? Missing cases, contradictions?
+- **Conformance** (only with a reference): walk every requirement and flag each one not met. Each is a candidate regardless of the relevance floor.
 
-## Phase 3 — Steelman each candidate
-For each candidate, try to kill it. A candidate dies only if you can:
-- point to **specific text already in the artifact** that resolves it (quote or cite the location), or
-- show it is **inert** — nothing downstream changes whether it is fixed or not.
+**Relevance floor:** a candidate must bear on alignment, soundness, or correctness. Drop style, wording, and formatting silently.
 
-"Probably fine" and "generally reasonable" are not steelmen and kill nothing. Only cited evidence or proven inertness kills a candidate.
+**Gate:** finish the full candidate list before Phase 3.
 
-For a **conformance** candidate, the only valid steelman is citing where the artifact already satisfies the requirement — it cannot be killed as inert, since the reference's requirements are mandatory.
+## Phase 3 — Steelman
 
-A candidate **survives** only when it is both unresolved by existing text and consequential downstream.
+Try to kill each candidate. It dies only if you can:
+- quote or cite **text in the artifact** that resolves it, or
+- show it is **inert**: nothing downstream changes whether it is fixed or not.
 
-## Phase 4 — Propose, do not apply
-For each surviving finding, write the smallest edit that closes the gap.
+"Probably fine" kills nothing. A conformance candidate can only die by citing where the requirement is met.
 
-**Gate:** Propose the edit; do not apply it. The user approves every change.
+A candidate survives when it is unresolved and consequential.
 
-If closing a gap would need substantial rewriting or new material, the finding is bigger than a gap — say so and describe it. Do not quietly expand scope.
+## Phase 4 — Propose
+
+For each survivor, write the smallest edit that closes the gap.
+
+**Gate:** propose, do not apply. If closing a gap needs substantial rewriting, say so and describe it. Do not expand scope.
 
 ## Phase 5 — Report
-Output, in this order:
-1. **Goal** — the one-line target you checked against.
-2. **Findings** — for each survivor: the gap, what breaks downstream without it, and the proposed surgical edit.
-3. **Dismissals** — every candidate you raised and dropped, load-bearing first. For each: the candidate, and why it was dropped (the cited text that resolves it, or why it is inert) — so you can overrule any of them.
-4. If nothing survived, say so directly ("Checked against the goal and for internal soundness; no load-bearing gaps found"), still list the dismissals, and stop.
 
-## Hold throughout
-- **Two burdens, opposed:** in detection, do not manufacture inert nitpicks; in steelman, do not dismiss a real candidate without cited evidence. Honest assessment sits between them.
-- **Surgical only:** every proposed change must touch a load-bearing element or alter a downstream action. No additions for completeness, polish, or thoroughness.
-- **One pass.** Do not launch a further pass over your own output.
+Write for a reader outside the project. Plain words. For each finding: what is wrong, what breaks because of it, and the fix. No unexplained terms from the artifact.
+
+1. **Goal.** The one line you checked against.
+2. **Findings.** Each survivor: the gap, what breaks downstream, the proposed edit.
+3. **Dismissals.** Every dropped candidate, load-bearing first, one line each: the candidate and why it died (cited text, or inert).
+4. If nothing survived: say "Checked against the goal and for internal soundness; no load-bearing gaps found", list the dismissals, and stop.
+
+One pass. Do not review your own output.
